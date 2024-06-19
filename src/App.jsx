@@ -55,7 +55,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blue-900  justify-center p-7">
+    <div className="min-h-screen bg-blue-900 flex flex-col justify-center p-7">
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden md:max-w-2xl">
         <div className="md:flex">
           <div className="w-full p-4">
@@ -66,13 +66,13 @@ const App = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
-                className="w-full p-2 border rounded mt-2 "
+                className="w-full p-2 border rounded mt-2"
               />
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Content (250 characters max)"
-                className="w-full p-2 border border-gray-300 rounded mt-2 "
+                className="w-full p-2 border border-gray-300 rounded mt-2"
                 maxLength="250"
               ></textarea>
               <button
@@ -85,20 +85,20 @@ const App = () => {
           </div>
         </div>
       </div>
-        
-      <div className="mt-8 w-1/2 mx-auto items-center justify-center">
+      
+      <div className="mt-8 w-full md:w-1/2 mx-auto">
         {tasks.map((task) => (
           <div
             key={task.id}
-            className={`flex items-start justify-between p-4 bg-white border rounded mb-2 shadow-md ${
+            className={`flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-white border rounded mb-2 shadow-md ${
               task.done ? 'bg-green-100' : ''
             }`}
           >
-            <div>
+            <div className="flex-1">
               <h2 className="text-lg font-semibold">{task.title}</h2>
               <p>{task.content}</p>
             </div>
-            <div className="flex items-center space-x-2 ">
+            <div className="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-2 mt-2 md:mt-0">
               <button
                 onClick={() => handleToggleDone(task.id)}
                 className={`p-2 rounded ${
